@@ -65,6 +65,11 @@ dependencies {
 
     // Lifecycle
     implementation(libs.androidx.lifecycle.runtime)
+    implementation(Dependencies.Core.appCompat)
+    implementation(Dependencies.Core.coreKtx)
+    implementation(Dependencies.UI.constraintLayout)
+    implementation(Dependencies.UI.recyclerView)
+    implementation(Dependencies.UI.googleMaterial)
 
     // Testing
     testImplementation(libs.junit.api)

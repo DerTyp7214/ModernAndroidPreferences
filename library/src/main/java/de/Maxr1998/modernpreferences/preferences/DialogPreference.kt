@@ -39,8 +39,6 @@ abstract class DialogPreference(key: String) : Preference(key), LifecycleEventOb
      */
     private var recreateDialog = false
 
-    var style: Int = 0
-
     override fun bindViews(holder: PreferencesAdapter.ViewHolder) {
         super.bindViews(holder)
         holder.itemView.context.apply {
@@ -54,7 +52,7 @@ abstract class DialogPreference(key: String) : Preference(key), LifecycleEventOb
     }
 
     override fun onClick(holder: PreferencesAdapter.ViewHolder) {
-        dialog = (dialog ?: createDialog(holder.itemView.context, style)).apply {
+        dialog = (dialog ?: createDialog(holder.itemView.context)).apply {
             show()
         }
     }
@@ -70,15 +68,6 @@ abstract class DialogPreference(key: String) : Preference(key), LifecycleEventOb
     private fun createAndShowDialog(context: Context) {
         (dialog ?: createDialog(context).apply { dialog = this }).show()
     }
-
-    /**
-     * Subclasses must create the dialog which will managed by this preference here.
-     * However, they should not [show][Dialog.show] it already, that will be done in [onClick].
-     *
-     * @param context the context to create your Dialog with, has a window attached
-     * @param style the style passed to the Dialog
-     */
-    abstract fun createDialog(context: Context, style: Int): Dialog
 
     /**
      * Dismiss the currently attached dialog, if any

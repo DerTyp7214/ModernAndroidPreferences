@@ -9,6 +9,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.AppCompatEditText
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class EditTextPreference(key: String) : DialogPreference(key) {
 
