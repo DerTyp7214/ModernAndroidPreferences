@@ -56,6 +56,15 @@ abstract class DialogPreference(key: String) : Preference(key), LifecycleEventOb
     }
 
     /**
+     * Subclasses must create the dialog which will managed by this preference here.
+     * However, they should not [show][Dialog.show] it already, that will be done in [onClick].
+     *
+     * @param context the context to create your Dialog with, has a window attached
+     * @param style the style passed to the Dialog
+     */
+    abstract fun createDialog(context: Context, style: Int): Dialog
+
+    /**
      * Dismiss the currently attached dialog, if any
      */
     fun dismiss() = dialog?.dismiss()
