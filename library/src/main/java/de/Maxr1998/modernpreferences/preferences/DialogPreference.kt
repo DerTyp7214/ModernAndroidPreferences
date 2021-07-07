@@ -39,8 +39,24 @@ abstract class DialogPreference(key: String) : Preference(key), LifecycleEventOb
      */
     private var recreateDialog = false
 
+    var style: Int = 0
+
+    override fun bindViews(holder: PreferencesAdapter.ViewHolder) {
+        super.bindViews(holder)
+        holder.itemView.context.apply {
+            if (this is LifecycleOwner) lifecycle.addObserver(this@DialogPreference)
+        }
+
+        if (recreateDialog) {
+            recreateDialog = false
+            onClick(holder)
+        }
+    }
+
     override fun onClick(holder: PreferencesAdapter.ViewHolder) {
-        createAndShowDialog(holder.itemView.context)
+        dialog = (dialog ?: createDialog(holder.itemView.context, style)).apply {
+            show()
+        }
     }
 
     /**

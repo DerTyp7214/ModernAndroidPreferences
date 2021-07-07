@@ -38,7 +38,7 @@ class EditTextPreference(key: String) : DialogPreference(key) {
         if (currentInput == null) currentInput = getString()
     }
 
-    override fun createDialog(context: Context): Dialog = createDialog(context, 0)
+    override fun createDialog(context: Context): Dialog = createDialog(context, style)
 
     override fun createDialog(context: Context, style: Int): Dialog = Config.dialogBuilderFactory(context, style).apply {
         if (titleRes != -1) setTitle(titleRes) else setTitle(title)

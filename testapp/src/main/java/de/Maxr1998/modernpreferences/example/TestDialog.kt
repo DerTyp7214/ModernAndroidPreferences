@@ -23,7 +23,7 @@ import android.content.Context
 import de.Maxr1998.modernpreferences.preferences.DialogPreference
 
 class TestDialog : DialogPreference("dialog") {
-    override fun createDialog(context: Context): Dialog = createDialog(context, 0)
+    override fun createDialog(context: Context): Dialog = createDialog(context, style)
     override fun createDialog(context: Context, style: Int): Dialog =
             Config.dialogBuilderFactory(context, style)
                     .setTitle("Info")
