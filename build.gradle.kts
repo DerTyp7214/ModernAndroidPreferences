@@ -10,6 +10,19 @@ plugins {
     alias(libs.plugins.dependencyupdates)
 }
 
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        val kotlinVersion: String by project
+        classpath("com.android.tools.build:gradle:7.0.2")
+        classpath(kotlin("gradle-plugin", kotlinVersion))
+        classpath("de.mannodermaus.gradle.plugins:android-junit5:1.7.1.1")
+    }
+}
+
 allprojects {
     repositories {
         google()
