@@ -114,6 +114,8 @@ open class Preference(key: String) : AbstractPreference(key) {
 
     var clickListener: OnClickListener? = null
 
+    var useTint: Boolean = true
+
     /**
      * The screen this Preference currently is attached to, or null
      */
@@ -193,6 +195,11 @@ open class Preference(key: String) : AbstractPreference(key) {
         var itemVisible = false
         holder.icon?.apply {
             itemVisible = true
+            if (!useTint) {
+                clearColorFilter()
+                imageTintList = null
+                backgroundTintList = null
+            }
             when {
                 iconRes != DEFAULT_RES_ID -> setImageResource(iconRes)
                 icon != null -> setImageDrawable(icon)

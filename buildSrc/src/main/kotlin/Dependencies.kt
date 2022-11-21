@@ -9,13 +9,13 @@ object Dependencies {
 
         // Core
         const val appCompat = "1.2.0"
-        const val coreKtx = "1.3.2"
-        const val activityKtx = "1.1.0"
+        const val coreKtx = "1.9.0-beta01"
+        const val activityKtx = "1.6.0-beta01"
 
         // UI
         const val constraintLayout = "2.0.0-beta6"
         const val recyclerView = "1.1.0"
-        const val googleMaterial = "1.5.0-alpha04"
+        const val googleMaterial = "1.7.0-beta01"
 
         // Lifecycle
         const val lifecycleExtensions = "2.2.0"
@@ -26,7 +26,7 @@ object Dependencies {
         const val mockk = "1.10.5"
 
         // Debug
-        const val leakCanary = "2.5"
+        const val leakCanary = "2.9.1"
 
         fun isStable(version: String): Boolean {
             return listOf("alpha", "beta", "dev", "rc", "m").none {

@@ -44,7 +44,12 @@ android {
             }
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_15
+        targetCompatibility = JavaVersion.VERSION_15
+    }
     kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_15.toString()
         @Suppress("SuspiciousCollectionReassignment")
         freeCompilerArgs += listOf("-module-name", libraryName)
     }
